@@ -1,0 +1,17 @@
+
+#docker-compose.yml
+
+version: '3.7'
+
+services:
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+
+  client:
+    build: ./client
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
